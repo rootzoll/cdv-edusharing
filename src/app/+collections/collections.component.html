@@ -1,0 +1,168 @@
+<div class="collections-master-div" [class.collections-master-div-notabs]="!isRootLevelCollection()">
+
+<!-- ROOT TABS -->
+<table *ngIf="isRootLevelCollection()" cellspacing="0" cellpadding="0" style="width: 100%; margin-top: 10px;">
+    <!-- TODO: replace table tabs with Angular Material 2 tabs when those are production ready-->
+    <tr style="height: 30px;">
+        <td class="table-tab" (click)="selectTabMyCollections()" [class.table-tab-selected]="(tabSelected===0)">
+            <span class="table-tab-title-long">{{ 'collections_myCollectionsLong' | translate }}</span>
+            <span class="table-tab-title-short">{{ 'collections_myCollectionsShort' | translate }}</span>
+        </td>
+        <td class="table-tab table-tab-middle" (click)="selectTabMyOrganizations()" [class.table-tab-selected]="(tabSelected===1)">
+            <span class="table-tab-title-long">{{ 'collections_orgaCollectionsLong' | translate }}</span>
+            <span class="table-tab-title-short">{{ 'collections_orgaCollectionsShort' | translate }}</span>
+        </td>
+        <td class="table-tab" (click)="selectTabAllCollections()" [class.table-tab-selected]="(tabSelected===2)">
+            <span class="table-tab-title-long">{{ 'collections_allCollectionsLong' | translate }}</span>
+            <span class="table-tab-title-short">{{ 'collections_allCollectionsShort' | translate }}</span>
+        </td>
+    </tr>
+</table>
+
+<!-- breadcrumbs -->
+<div *ngIf="!isRootLevelCollection() && (tabSelected>=-1)" class="collections-breadcrumb">
+    
+    <!-- root category -->
+    <div *ngIf="tabSelected==-1" class="breadcrumb breadcrumb-clickable" (click)="selectTabMyCollections()" >{{ 'collections_collections' | translate }}</div>
+    <div *ngIf="tabSelected==0" class="breadcrumb breadcrumb-clickable" (click)="selectTabMyCollections()" >{{ 'collections_myCollectionsLong' | translate }}
+    </div>
+    <div *ngIf="tabSelected==1" class="breadcrumb breadcrumb-clickable" (click)="selectTabMyOrganizations()">{{ 'collections_orgaCollectionsLong' | translate }}</div>
+    <div *ngIf="tabSelected==2" class="breadcrumb breadcrumb-clickable" (click)="selectTabAllCollections()">{{ 'collections_allCollectionsLong' | translate }}</div>
+
+    <!-- in between crumbs -->
+    <div class="breadcrumb" *ngFor="let crumb of breadcrumbs"  (click)="selectBreadcrumb(crumb)">&gt; <span class="breadcrumb-clickable">{{crumb.name}}</span></div>
+
+    <!-- actual collection as information -->
+    <div *ngIf="(!isLoading && isReady && (contentDetailObject==null))" class="breadcrumb">&gt; {{collectionContent.collection.title}}</div>
+    <div *ngIf="(!isLoading && isReady && (contentDetailObject!=null))" class="breadcrumb">&gt; {{contentDetailObject.reference.title}}</div>
+
+</div>
+
+<!-- collection header -->
+<div *ngIf="(!isRootLevelCollection()) && (!isLoading) && isReady && (tabSelected>=-1)" class="collections-header" [style.background-color]="collectionContent.collection.color">
+
+        <div class="card-collection-image-container" style="width:100%;">
+
+            <div *ngIf="collectionContent.collection.icon==null" style="width: 250px; height: 200px; background-color: white" >
+                <div style="background-color: white; height: 16px;"></div>
+                <div class="card-image-icon-container" [style.background-color]="collectionContent.collection.color">
+                    <i class="material-icons" style="font-size: 75px; margin-top: 44px;">collections</i>
+                </div>
+            </div>
+
+            <div *ngIf="collectionContent.collection.icon!=null" class="card-image-icon-container" [style.background-color]="collectionContent.collection.color" style="width: 250px; height: 200px;">
+                <img class="collection-header-image" src="data:image/png;base64,{{collectionContent.collection.icon}}" style="width: 250px; height: 200px;"/>
+            </div>  
+
+        </div>
+
+       <div *ngIf="isAllowedToEditCollection() && (contentDetailObject==null)" class="collections-edit-button" (click)="buttonCollectionEdit()" style="height: 25px;">
+                <i class="material-icons" style="display:inline;">edit</i>
+            </div>    
+
+       <div *ngIf="isAllowedToDeleteCollection() && (contentDetailObject==null)" class="collections-delete-button" (click)="buttonCollectionDelete()" style="height: 25px;">
+                <i class="material-icons" style="display:inline;">delete</i>
+        </div>
+
+        <div class="collections-header-textarea">
+
+            <div class="collection-new-preview-headline collections-header-texttop">
+                {{collectionContent.collection.title}}
+            </div>
+
+            <div class="collection-new-preview-subline collections-header-texttop">{{collectionContent.collection.childReferencesCount}} {{ 'collections_materials' | translate }}</div>
+            <div class="collection-new-preview-infoline">
+                <i class="material-icons icon-bottom">person</i> {{collectionContent.collection.owner.firstName}} {{collectionContent.collection.owner.lastName}}</div>
+
+            <div *ngIf="(collectionContent.collection.getPrivacyScope()==0)"                 
+                class="collection-new-preview-infoline">
+                <i class="material-icons icon-bottom">help outline</i> ...
+           </div>
+            <div *ngIf="(collectionContent.collection.getPrivacyScope()==1)"                 
+                class="collection-new-preview-infoline">
+                <i class="material-icons icon-bottom">lock outline</i> {{ 'collections_accessPrivate' | translate }}
+           </div>
+           <div *ngIf="(collectionContent.collection.getPrivacyScope()==2)"                 
+                class="collection-new-preview-infoline">
+                <i class="material-icons icon-bottom">domain</i> {{ 'collections_accessOrga' | translate }}
+           </div>
+            <div *ngIf="(collectionContent.collection.getPrivacyScope()==3)"                 
+                class="collection-new-preview-infoline">
+                <i class="material-icons icon-bottom">language</i> {{ 'collections_accessPublic' | translate }}
+           </div>
+
+           <div style="margin-top:16px;opacity:0.85;">{{ 'collections_description' | translate }}</div>
+
+           <div style="margin-top:5px;">
+               {{collectionContent.collection.description}}
+               <span *ngIf="(collectionContent.collection.description==null) || (collectionContent.collection.description.length==0)" style="padding:2px;">-</span>
+           </div>
+
+        </div>
+
+
+</div>
+
+<!-- spinner if loading -->
+<section *ngIf="(isLoading || (!isReady))" class="collections-loading-div" style="padding-top: 24px;text-align: center;">
+    <img src="images/spinner.gif">
+</section>  
+
+<!-- content (collection cards) if not error -->
+
+<section class="collections-cards-div" *ngIf="((lastError==null) && (!isLoading) && (contentDetailObject==null))" >
+
+                <div *ngIf="(!isRootLevelCollection()) && (collectionContent.collections.length>0)" class="section-headline">{{ 'collections_collections' | translate }}</div>
+
+                <!-- COLLECTION CARDS -->
+                <edu-card *ngFor="let collection of collectionContent.collections" [collection]="collection" (click)="onCollectionsClick(collection)"></edu-card>
+
+                <!-- when empty at root level -->
+                <div *ngIf="collectionContent.collections.length==0" class="section-headline collection-nocontent-container">
+                    <div *ngIf="tabSelected==1" class="collection-nocontent-big">
+                        {{ 'collections_noOrgaCollections' | translate }}
+                    </div>
+                    <div *ngIf="tabSelected==2" class="collection-nocontent-big">
+                        {{ 'collections_noMyCollections' | translate }}
+                    </div>
+                </div>
+
+</section>    
+
+<!-- content (content cards) if not error -->
+<section class="collections-cards-div" *ngIf="((lastError==null) && (!isLoading) && (isReady) && !isRootLevelCollection() && (contentDetailObject==null))" >
+            
+                <div class="section-headline">{{ 'collections_content' | translate }}</div>
+
+                <!-- CONTENT CARDS -->
+                <edu-card *ngFor="let reference of collectionContent.references" [reference]="reference" (click)="onContentClick(reference)"></edu-card>
+
+                <!-- NO CONTENT NOTICE -->
+                <div *ngIf="collectionContent.references.length==0" class="section-headline collection-nocontent-container">
+                    <div class="collection-nocontent-big">
+                        {{ 'collections_noContentAvailable' | translate }}
+                    </div>
+                    <div class="collection-nocontent-small">
+                        {{ 'collections_howToAddContent' | translate }}
+                    </div>
+                    <button md-raised-button color="primary" (click)="switchToSearch()" style="background-color: #4F7A98">{{ 'collections_proceedToSearch' | translate }}</button>
+                </div>
+                
+
+</section>    
+
+<!-- error if present-->
+<section *ngIf="(lastError!=null)" style="text-align: center;">
+    <p style="color:red;">{{lastError}}</p>
+    <button md-raised-button color="warn" (click)="resetCollections()">{{ 'collections_reload' | translate }}</button>
+</section>
+
+<section style="display:inline-block;">{{temp}}</section>
+
+</div>
+
+<!--- CONTENT DETAIL ---->
+
+<div *ngIf="(contentDetailObject!=null)" class="collections-master-div" style="padding-right: 16px;">
+    <content-detail [ref]="contentDetailObject" [collection]="collectionContent.collection" (onBackClick)="contentDetailBack()"></content-detail>
+</div>

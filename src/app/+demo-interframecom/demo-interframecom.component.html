@@ -1,0 +1,19 @@
+<h1>
+    Interframework Event Communication
+</h1>
+<p>
+    Demo of sending and receiving events between edu-sharing GWT and edu-sharing Angular2 using GwtInterfaceService &  GwtEventListener.
+</p>
+<p>
+    Run build Angular2 inside of edu-sharing to make sense of this demo.
+</p>
+<p *ngIf="isRunningInFrame" style="color: green">
+    OK - Angular2 is running inside edu-sharing GWT iFrame. Continue Demo and push buttons below.
+</p>
+<p *ngIf="!isRunningInFrame" style="color: red">
+    OK - Angular2 is NOT running inside edu-sharing GWT iFrame. Buttons below will not work.
+</p>
+<p>
+    <button (click)="sendTestEvent()">Send Test Event to GWT and get an event back to Component Listener </button><br>
+    <button (click)="sendContentDetailEvent()">Jump to GWT Node Detail View</button>
+</p>

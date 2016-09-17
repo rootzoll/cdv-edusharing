@@ -1,0 +1,626 @@
+{
+  "node": {
+    "ref": {
+      "repo": "local",
+      "id": "276827fc-3d10-4d82-8887-db56a5ab3c90"
+    },
+    "parent": {
+      "repo": "local",
+      "id": "23491d00-95a8-446b-8c9e-81127664cf93"
+    },
+    "type": "{http://www.campuscontent.de/model/1.0}io",
+    "aspects": [
+      "{http://www.alfresco.org/model/rendition/1.0}renditioned",
+      "{http://www.campuscontent.de/model/lom/1.0}lifecycle",
+      "{http://www.campuscontent.de/model/lom/1.0}technical",
+      "{http://www.campuscontent.de/model/1.0}iometadata",
+      "{http://www.alfresco.org/model/content/1.0}versionable",
+      "{http://www.campuscontent.de/model/1.0}usageaspect",
+      "{http://www.alfresco.org/model/system/1.0}referenceable",
+      "{http://www.alfresco.org/model/system/1.0}localized",
+      "{http://www.alfresco.org/model/content/1.0}thumbnailModification",
+      "{http://www.campuscontent.de/model/lom/1.0}schema",
+      "{http://www.alfresco.org/model/exif/1.0}exif",
+      "{http://www.alfresco.org/model/content/1.0}metadataset",
+      "{http://www.campuscontent.de/model/1.0}licenses",
+      "{http://www.campuscontent.de/model/1.0}commonlicenses",
+      "{http://www.campuscontent.de/model/lom/1.0}rights",
+      "{http://www.alfresco.org/model/content/1.0}thumbnailed",
+      "{http://www.alfresco.org/model/content/1.0}titled",
+      "{http://www.campuscontent.de/model/ulei/1.0}unileipzigaspect",
+      "{http://www.campuscontent.de/model/lom/1.0}meta-metadata",
+      "{http://www.alfresco.org/model/content/1.0}auditable",
+      "{http://www.campuscontent.de/model/1.0}lomreplication",
+      "{http://www.campuscontent.de/model/lom/1.0}general",
+      "{http://www.alfresco.org/model/content/1.0}author"
+    ],
+    "name": "Bild 1460092034071",
+    "title": "Bild 1460092034071",
+    "description": null,
+    "createdAt": "2016-04-08T20:30:47Z",
+    "createdBy": {
+      "firstName": "Administrator",
+      "lastName": "",
+      "mailbox": "admin@alfresco.com"
+    },
+    "modifiedAt": "2016-04-30T11:14:08Z",
+    "modifiedBy": {
+      "firstName": "Administrator",
+      "lastName": "",
+      "mailbox": "admin@alfresco.com"
+    },
+    "access": [
+      {
+        "permission": "Write",
+        "hasRight": true
+      },
+      {
+        "permission": "Delete",
+        "hasRight": true
+      }
+    ],
+    "contentVersion": "1.0",
+    "contentUrl": "http://localhost:8080/edu-sharing/eduservlet/redirect?APP_ID=local&NODE_ID=276827fc-3d10-4d82-8887-db56a5ab3c90",
+    "properties": [
+      {
+        "name": "{http://www.alfresco.org/model/content/1.0}creator",
+        "values": [
+          "admin"
+        ]
+      },
+      {
+        "name": "{http://www.campuscontent.de/model/1.0}metadatacontributer_creatorVCARD_COUNTRY",
+        "values": [
+          ""
+        ]
+      },
+      {
+        "name": "NodeCreator_LastName",
+        "values": [
+          ""
+        ]
+      },
+      {
+        "name": "{http://www.campuscontent.de/model/1.0}lifecyclecontributer_authorVCARD_REGION",
+        "values": [
+          ""
+        ]
+      },
+      {
+        "name": "{http://www.campuscontent.de/model/1.0}metadatacontributer_creatorVCARD_EMAIL",
+        "values": [
+          ""
+        ]
+      },
+      {
+        "name": "CC_CACHE_MILLISECONDS_KEY",
+        "values": [
+          "1462014848604"
+        ]
+      },
+      {
+        "name": "{http://www.alfresco.org/model/content/1.0}created_LONG",
+        "values": [
+          "1460147447490"
+        ]
+      },
+      {
+        "name": "{http://www.alfresco.org/model/content/1.0}initialVersion",
+        "values": [
+          "false"
+        ]
+      },
+      {
+        "name": "{http://www.campuscontent.de/model/1.0}version_comment",
+        "values": [
+          "upload"
+        ]
+      },
+      {
+        "name": "AlfrescoMimeType",
+        "values": [
+          "image/jpeg"
+        ]
+      },
+      {
+        "name": "{http://www.campuscontent.de/model/1.0}metadatacontributer_creatorFN",
+        "values": [
+          "Administrator"
+        ]
+      },
+      {
+        "name": "{http://www.alfresco.org/model/content/1.0}versionLabel",
+        "values": [
+          "1.0"
+        ]
+      },
+      {
+        "name": "{http://www.campuscontent.de/model/1.0}lifecyclecontributer_author",
+        "values": [
+          "BEGIN:VCARD\nVERSION:3.0\nN:;Administrator\nFN:Administrator \nORG:\nURL:\nTITLE:\nTEL;TYPE=WORK,VOICE:\nADR;TYPE=intl,postal,parcel,work:;;;;;;\nEMAIL;TYPE=PREF,INTERNET:\nEND:VCARD\n"
+        ]
+      },
+      {
+        "name": "{http://www.campuscontent.de/model/1.0}lifecyclecontributer_authorVCARD_EMAIL",
+        "values": [
+          ""
+        ]
+      },
+      {
+        "name": "{http://www.campuscontent.de/model/1.0}lifecyclecontributer_authorVCARD_TEL",
+        "values": [
+          ""
+        ]
+      },
+      {
+        "name": "{http://www.campuscontent.de/model/1.0}metadatacontributer_creatorVCARD_TEL",
+        "values": [
+          ""
+        ]
+      },
+      {
+        "name": "{http://www.alfresco.org/model/content/1.0}edu_forcemetadataset",
+        "values": [
+          "false"
+        ]
+      },
+      {
+        "name": "{http://www.alfresco.org/model/content/1.0}autoVersionOnUpdateProps",
+        "values": [
+          "false"
+        ]
+      },
+      {
+        "name": "KEY_PREVIEWTYPE",
+        "values": [
+          "TYPE_GENERATED"
+        ]
+      },
+      {
+        "name": "{http://www.campuscontent.de/model/1.0}metadatacontributer_creatorVCARD_CITY",
+        "values": [
+          ""
+        ]
+      },
+      {
+        "name": "{http://www.campuscontent.de/model/lom/1.0}location",
+        "values": [
+          "ccrep://local/276827fc-3d10-4d82-8887-db56a5ab3c90"
+        ]
+      },
+      {
+        "name": "{http://www.campuscontent.de/model/1.0}lifecyclecontributer_authorVCARD_STREET",
+        "values": [
+          ""
+        ]
+      },
+      {
+        "name": "{}NodeID",
+        "values": [
+          "276827fc-3d10-4d82-8887-db56a5ab3c90"
+        ]
+      },
+      {
+        "name": "DownloadURL",
+        "values": [
+          "http://localhost:8080/edu-sharing/eduservlet/redirect?APP_ID=local&NODE_ID=276827fc-3d10-4d82-8887-db56a5ab3c90&params=display%3Ddownload"
+        ]
+      },
+      {
+        "name": "{virtualproperty}primaryparent_nodeid",
+        "values": [
+          "23491d00-95a8-446b-8c9e-81127664cf93"
+        ]
+      },
+      {
+        "name": "{http://www.alfresco.org/model/system/1.0}node-dbid",
+        "values": [
+          "1541"
+        ]
+      },
+      {
+        "name": "{virtualproperty}usagecount",
+        "values": [
+          "0"
+        ]
+      },
+      {
+        "name": "{}NodeType",
+        "values": [
+          "{http://www.campuscontent.de/model/1.0}io"
+        ]
+      },
+      {
+        "name": "{http://www.alfresco.org/model/content/1.0}name",
+        "values": [
+          "Bild 1460092034071"
+        ]
+      },
+      {
+        "name": "{http://www.campuscontent.de/model/1.0}lifecyclecontributer_authorVCARD_URL",
+        "values": [
+          ""
+        ]
+      },
+      {
+        "name": "{http://www.campuscontent.de/model/1.0}metadatacontributer_creatorVCARD_URL",
+        "values": [
+          ""
+        ]
+      },
+      {
+        "name": "{}ContentURL",
+        "values": [
+          "http://localhost:8080/edu-sharing/eduservlet/redirect?APP_ID=local&NODE_ID=276827fc-3d10-4d82-8887-db56a5ab3c90"
+        ]
+      },
+      {
+        "name": "NodeCreator_FirstName",
+        "values": [
+          "Administrator"
+        ]
+      },
+      {
+        "name": "NodeCreator_EMail",
+        "values": [
+          "admin@alfresco.com"
+        ]
+      },
+      {
+        "name": "{http://www.campuscontent.de/model/1.0}metadatacontributer_creatorVCARD_STREET",
+        "values": [
+          ""
+        ]
+      },
+      {
+        "name": "{virtualproperty}permalink",
+        "values": [
+          "http://localhost:8080/edu-sharing/node/276827fc-3d10-4d82-8887-db56a5ab3c90/1.0"
+        ]
+      },
+      {
+        "name": "{http://www.alfresco.org/model/rendition/1.0}rendition",
+        "values": [
+          "http://localhost:8080/edu-sharing/preview?nodeId=276827fc-3d10-4d82-8887-db56a5ab3c90&storeProtocol=workspace&storeId=SpacesStore&dontcache=1465572554300"
+        ]
+      },
+      {
+        "name": "{http://www.campuscontent.de/model/1.0}lifecyclecontributer_authorVCARD_SURNAME",
+        "values": [
+          ""
+        ]
+      },
+      {
+        "name": "{}NodeCreator_FirstName",
+        "values": [
+          "Administrator"
+        ]
+      },
+      {
+        "name": "{http://www.alfresco.org/model/content/1.0}lastThumbnailModification",
+        "values": [
+          "imgpreview:1460147454642"
+        ]
+      },
+      {
+        "name": "{http://www.alfresco.org/model/exif/1.0}pixelXDimension",
+        "values": [
+          "640"
+        ]
+      },
+      {
+        "name": "{http://www.alfresco.org/model/content/1.0}createdISO8601",
+        "values": [
+          "2016-04-08T20:30:47.490Z"
+        ]
+      },
+      {
+        "name": "{}REPOSITORY_ID",
+        "values": [
+          "local"
+        ]
+      },
+      {
+        "name": "{http://www.campuscontent.de/model/1.0}metadatacontributer_creatorVCARD_ORG",
+        "values": [
+          ""
+        ]
+      },
+      {
+        "name": "{http://www.campuscontent.de/model/lom/1.0}general_keyword",
+        "values": [
+          ""
+        ]
+      },
+      {
+        "name": "{http://www.campuscontent.de/model/1.0}lifecyclecontributer_authorVCARD_PLZ",
+        "values": [
+          ""
+        ]
+      },
+      {
+        "name": "{}REPOSITORY_CAPTION",
+        "values": [
+          "local"
+        ]
+      },
+      {
+        "name": "{http://www.campuscontent.de/model/1.0}metadatacontributer_creatorVCARD_PLZ",
+        "values": [
+          ""
+        ]
+      },
+      {
+        "name": "NodeType",
+        "values": [
+          "{http://www.campuscontent.de/model/1.0}io"
+        ]
+      },
+      {
+        "name": "{http://www.campuscontent.de/model/lom/1.0}title",
+        "values": [
+          "Bild 1460092034071"
+        ]
+      },
+      {
+        "name": "{http://www.alfresco.org/model/content/1.0}automaticUpdate",
+        "values": [
+          "true"
+        ]
+      },
+      {
+        "name": "NodeModifier_FirstName",
+        "values": [
+          "Administrator"
+        ]
+      },
+      {
+        "name": "ContentURL",
+        "values": [
+          "http://localhost:8080/edu-sharing/eduservlet/redirect?APP_ID=local&NODE_ID=276827fc-3d10-4d82-8887-db56a5ab3c90"
+        ]
+      },
+      {
+        "name": "{http://www.alfresco.org/model/exif/1.0}pixelYDimension",
+        "values": [
+          "480"
+        ]
+      },
+      {
+        "name": "{http://www.campuscontent.de/model/1.0}original",
+        "values": [
+          "276827fc-3d10-4d82-8887-db56a5ab3c90"
+        ]
+      },
+      {
+        "name": "{http://www.alfresco.org/model/content/1.0}modified",
+        "values": [
+          "April 30, 2016 4:14 AM"
+        ]
+      },
+      {
+        "name": "{http://www.alfresco.org/model/content/1.0}created",
+        "values": [
+          "April 8, 2016 1:30 PM"
+        ]
+      },
+      {
+        "name": "{http://www.campuscontent.de/model/1.0}lifecyclecontributer_authorFN",
+        "values": [
+          "Administrator"
+        ]
+      },
+      {
+        "name": "{http://www.alfresco.org/model/system/1.0}store-identifier",
+        "values": [
+          "SpacesStore"
+        ]
+      },
+      {
+        "name": "{http://www.campuscontent.de/model/lom/1.0}format",
+        "values": [
+          "image/jpeg"
+        ]
+      },
+      {
+        "name": "{http://www.campuscontent.de/model/1.0}metadatacontributer_creatorVCARD_SURNAME",
+        "values": [
+          ""
+        ]
+      },
+      {
+        "name": "{http://www.campuscontent.de/model/1.0}metadatacontributer_creatorVCARD_GIVENNAME",
+        "values": [
+          "Administrator"
+        ]
+      },
+      {
+        "name": "{}NodeModifier_FirstName",
+        "values": [
+          "Administrator"
+        ]
+      },
+      {
+        "name": "{}NodeModifier_EMail",
+        "values": [
+          "admin@alfresco.com"
+        ]
+      },
+      {
+        "name": "{http://www.campuscontent.de/model/lom/1.0}size",
+        "values": [
+          "5938"
+        ]
+      },
+      {
+        "name": "{http://www.campuscontent.de/model/1.0}lifecyclecontributer_authorVCARD_ORG",
+        "values": [
+          ""
+        ]
+      },
+      {
+        "name": "NodeID",
+        "values": [
+          "276827fc-3d10-4d82-8887-db56a5ab3c90"
+        ]
+      },
+      {
+        "name": "REPOSITORY_ID",
+        "values": [
+          "local"
+        ]
+      },
+      {
+        "name": "{}NodeCreator_EMail",
+        "values": [
+          "admin@alfresco.com"
+        ]
+      },
+      {
+        "name": "{http://www.campuscontent.de/model/1.0}lifecyclecontributer_authorVCARD_CITY",
+        "values": [
+          ""
+        ]
+      },
+      {
+        "name": "{http://www.alfresco.org/model/content/1.0}modifier",
+        "values": [
+          "admin"
+        ]
+      },
+      {
+        "name": "REPOSITORY_CAPTION",
+        "values": [
+          "local"
+        ]
+      },
+      {
+        "name": "{http://www.alfresco.org/model/system/1.0}store-protocol",
+        "values": [
+          "workspace"
+        ]
+      },
+      {
+        "name": "NodeModifier_LastName",
+        "values": [
+          ""
+        ]
+      },
+      {
+        "name": "{http://www.alfresco.org/model/content/1.0}modifiedISO8601",
+        "values": [
+          "2016-04-30T11:14:08.604Z"
+        ]
+      },
+      {
+        "name": "{http://www.campuscontent.de/model/1.0}lifecyclecontributer_authorVCARD_TITLE",
+        "values": [
+          ""
+        ]
+      },
+      {
+        "name": "{http://www.alfresco.org/model/content/1.0}autoVersion",
+        "values": [
+          "false"
+        ]
+      },
+      {
+        "name": "{http://www.campuscontent.de/model/1.0}metadatacontributer_creator",
+        "values": [
+          "BEGIN:VCARD\nVERSION:3.0\nN:;Administrator\nFN:Administrator \nORG:\nURL:\nTITLE:\nTEL;TYPE=WORK,VOICE:\nADR;TYPE=intl,postal,parcel,work:;;;;;;\nEMAIL;TYPE=PREF,INTERNET:\nEND:VCARD\n"
+        ]
+      },
+      {
+        "name": "{http://www.alfresco.org/model/content/1.0}versionable",
+        "values": [
+          "true"
+        ]
+      },
+      {
+        "name": "NodeModifier_EMail",
+        "values": [
+          "admin@alfresco.com"
+        ]
+      },
+      {
+        "name": "{}NodeModifier_LastName",
+        "values": [
+          ""
+        ]
+      },
+      {
+        "name": "{http://www.campuscontent.de/model/1.0}metadatacontributer_creatorVCARD_REGION",
+        "values": [
+          ""
+        ]
+      },
+      {
+        "name": "{http://www.campuscontent.de/model/1.0}create_version",
+        "values": [
+          "true"
+        ]
+      },
+      {
+        "name": "{http://www.alfresco.org/model/content/1.0}edu_metadataset",
+        "values": [
+          "default"
+        ]
+      },
+      {
+        "name": "{http://www.campuscontent.de/model/lom/1.0}version",
+        "values": [
+          "1.0"
+        ]
+      },
+      {
+        "name": "{http://www.alfresco.org/model/content/1.0}modified_LONG",
+        "values": [
+          "1462014848604"
+        ]
+      },
+      {
+        "name": "{http://www.campuscontent.de/model/1.0}metadatacontributer_creatorVCARD_TITLE",
+        "values": [
+          ""
+        ]
+      },
+      {
+        "name": "{}CC_CACHE_MILLISECONDS_KEY",
+        "values": [
+          "1460147447490"
+        ]
+      },
+      {
+        "name": "{http://www.campuscontent.de/model/1.0}lifecyclecontributer_authorVCARD_GIVENNAME",
+        "values": [
+          "Administrator"
+        ]
+      },
+      {
+        "name": "{http://www.campuscontent.de/model/1.0}lifecyclecontributer_authorVCARD_COUNTRY",
+        "values": [
+          ""
+        ]
+      },
+      {
+        "name": "{http://www.alfresco.org/model/system/1.0}node-uuid",
+        "values": [
+          "276827fc-3d10-4d82-8887-db56a5ab3c90"
+        ]
+      },
+      {
+        "name": "{}NodeCreator_LastName",
+        "values": [
+          ""
+        ]
+      }
+    ],
+    "mimetype": "image/jpeg",
+    "size": 5938,
+    "preview": {
+      "url": "http://localhost:8080/edu-sharing/preview?nodeId=276827fc-3d10-4d82-8887-db56a5ab3c90&storeProtocol=workspace&storeId=SpacesStore&dontcache=1465572554300",
+      "width": null,
+      "height": null
+    }
+  }
+}

@@ -1,0 +1,58 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Ccdesktop2</title>
+  
+  <script>
+
+    if (document.location.href.indexOf('/angular/')<=0) {
+      // href base when running on ng serve in development
+      document.write('<base href="/" />');
+    } else {
+      // href base when running as part of edu-sharing system
+      document.write('<base href="' + document.location.href.substring(0,document.location.href.indexOf('/angular/')+9)  + '" />');
+    }
+
+    function iframeLoaded() {
+      var iFrameID = document.getElementById('renderFrame');
+      if(iFrameID) {
+            iFrameID.height = "";
+            iFrameID.height = iFrameID.contentWindow.document.body.scrollHeight + "px";
+      }   
+    }
+
+  </script>
+
+  {{#unless environment.production}}
+  <script src="/ember-cli-live-reload.js" type="text/javascript"></script>
+  {{/unless}}
+
+  <link rel="stylesheet" href="fonts/opensans_regular/stylesheet.css" type="text/css" charset="utf-8" />
+
+  <!-- see icons https://design.google.com/icons/ -->
+  <link rel="stylesheet" href="fonts/material-design-icons/material-icons.css" type="text/css" charset="utf-8" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+</head>
+<body style="margin: 0px;background-color: #EDEDED; overflow-y: scroll; overflow-x: hidden;">
+  <app-root>      
+      <div style="
+            text-align: center;
+            padding-top: 30px;">
+          <img src="images/spinner.gif">
+      </div>
+    </app-root>
+
+    {{#each scripts.polyfills}}
+    <script src="{{.}}"></script>
+    {{/each}}
+    <script>
+      System.import('system-config.js').then(function () {
+        System.import('main');
+      }).catch(console.error.bind(console));
+    </script>
+
+</body>
+</html>

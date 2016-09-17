@@ -1,0 +1,208 @@
+<div class="collections-master-div">
+
+<!-- spinner if loading -->
+<section *ngIf="(isLoading || (!isReady))" class="collections-loading-div" style="padding-top: 24px;text-align: center;">
+    <img src="images/spinner.gif">
+</section>  
+
+<!-- new collection step 1 -->
+<section *ngIf="((newCollectionStep===1) && (!isLoading))" class="collection-new-container">
+        <div class="dialog-header-field">
+            <span *ngIf="isNewCollection()">{{ 'collectionNew_createNewCollection' | translate }}</span>
+            <span *ngIf="isEditCollection()">{{ 'collectionNew_editCollection' | translate }}</span>
+        </div>
+        <div style="background-color:#FFFFFF;">
+            <div class="dialog-basic-area">
+
+                <md-input-container>
+                    <label>{{ 'collectionNew_setName' | translate }}</label><br>
+                    <input [(ngModel)]="newCollectionName" placeholder="{{ 'collectionNew_placeholderTitle' | translate }}" maxlength="40" class="dialog-input">
+                </md-input-container>
+
+            </div>   
+            <div class="dialog-basic-area">
+                <md-input-container>
+                    <label>{{ 'collectionNew_setDescription' | translate }}</label><br>
+                    <textarea [(ngModel)]="newCollectionDescription" placeholder="{{ 'collectionNew_placeholderDescription' | translate }}" rows="4" class="dialog-input-textarea"></textarea>
+                </md-input-container>
+            </div>
+            <div class="dialog-basic-area">
+                
+                    <label>{{ 'collectionNew_setAccess' | translate }}</label><br>
+                    <input type="radio" [ngModel]="{checked: newCollectionScope == 1}" (ngModelChange)="newCollectionScope=1" name="scope"> {{ 'collectionNew_setAccessOnlyMe' | translate }}<br>
+                    <input type="radio" [ngModel]="{checked: newCollectionScope == 2}" (ngModelChange)="newCollectionScope=2" name="scope"> {{ 'collectionNew_setAccessMyOrga' | translate }}<br>
+                    <input type="radio" [ngModel]="{checked: newCollectionScope == 3}" (ngModelChange)="newCollectionScope=3" name="scope"> {{ 'collectionNew_setAccessPublic' | translate }}
+                    <!--
+                    <md-radio-group [(ngModel)]='newCollectionScope'>
+                        <md-radio-button value="1">nur ich</md-radio-button><br>
+                        <md-radio-button value="2">meine Organisationen</md-radio-button><br>
+                        <md-radio-button value="3">alle</md-radio-button>
+                    </md-radio-group>
+                    -->
+            </div>
+            <!--      
+            <div class="dialog-dark-area">
+                place of collection
+            </div>
+            -->
+            <div class="dialog-basic-area button-area">
+                <button md-button (click)="newCollectionCancel()">{{ 'collectionNew_cancel' | translate }}</button>
+                <button md-raised-button color="primary" (click)="newCollectionContinue()" style="background-color: #3D6B8B">{{ 'collectionNew_continue' | translate }}</button>
+            </div>             
+        </div>    
+</section>
+
+<!-- new collection step 2 -->
+<section *ngIf="((newCollectionStep===2) && (!isLoading))" class="collection-new-container" style="width:300px;">
+
+        <div style="background-color:#383838;padding:8px;color:#FFFFFF;">
+            {{ 'collectionNew_preview' | translate }}
+        </div>
+
+        <div style="height:240px;background-color:white;">
+
+            <div class='image-upload-field'>
+                <input type='file' accept="image/png" name='userFile' (change)="imageDataChanged($event)"
+                class="image-upload-field-input" >
+            </div>
+
+            <div class="image-upload-icon">
+                <i class="material-icons icon-bottom">file_upload</i>
+            </div> 
+
+            <div *ngIf="(!imageShow) && (previewIcon==null)" class="card-collection-icon-container">
+                <div style="height: 35px;"></div>
+                <div class="card-image-icon-container" [style.background-color]="newCollectionColor">
+                    <i class="material-icons" style="font-size: 75px; margin-top: 44px;">collections</i>
+                </div>  
+            </div>
+
+            <div *ngIf="(!imageShow) && (previewIcon!=null)" class="card-collection-icon-container">
+                <img  src="data:image/png;base64,{{previewIcon}}" class="card-image-preview" />
+            </div>     
+
+            <div *ngIf="imageShow" class="card-collection-image-container">
+                <div class="card-image-container">
+                    <img src="{{imageData}}" class="card-image-preview" >
+                </div>
+            </div>
+
+        </div>
+
+        <div class="collection-new-preview-infoarea" [style.background-color]="newCollectionColor" >
+
+            <div class="collection-new-preview-headline">{{newCollectionName}}</div>
+            <div class="collection-new-preview-subline">0 {{ 'collectionNew_contents' | translate }}</div>
+            <div class="collection-new-preview-infoline">
+                <i class="material-icons icon-bottom">person</i> Max Mustermann</div>
+
+            <div *ngIf="(newCollectionScope=='1')"                 
+                class="collection-new-preview-infoline">
+                <i class="material-icons icon-bottom">lock outline</i> {{ 'collectionNew_accessPrivate' | translate }}
+           </div>
+           <div *ngIf="(newCollectionScope=='2')"                 
+                class="collection-new-preview-infoline">
+                <i class="material-icons icon-bottom">domain</i> {{ 'collectionNew_accessOrga' | translate }}
+           </div>
+            <div *ngIf="(newCollectionScope=='3')"                 
+                class="collection-new-preview-infoline">
+                <i class="material-icons icon-bottom">language</i> {{ 'collectionNew_accessPublic' | translate }}
+           </div>
+
+        </div>   
+
+        <div style="background-color:#FFFFFF;">
+            <div class="dialog-basic-area">
+                <div class="collection-new-preview-infoline" style="opacity:0.85;">
+                    {{ 'collectionNew_setColor' | translate }}
+                </div>
+
+                <div style="text-align: center;margin-top: 8px;">
+
+                    <div    (click)="setColor('#975B5D')" 
+                            class="color-option" 
+                            [ngClass]="{'color-selected': (newCollectionColor=='#975B5D')}"
+                            style="background-color:#975B5D;">&nbsp;</div>
+
+                    <div    (click)="setColor('#692426')" 
+                            class="color-option" 
+                            [ngClass]="{'color-selected': (newCollectionColor=='#692426')}"
+                            style="background-color:#692426;">&nbsp;</div>
+
+                    <div    (click)="setColor('#E6B247')" 
+                            class="color-option" 
+                            [ngClass]="{'color-selected': (newCollectionColor=='#E6B247')}"
+                            style="background-color:#E6B247;">&nbsp;</div>
+
+                    <div    (click)="setColor('#A89B39')" 
+                            class="color-option" 
+                            [ngClass]="{'color-selected': (newCollectionColor=='#A89B39')}"
+                            style="background-color:#A89B39;">&nbsp;</div>
+
+                    <div    (click)="setColor('#699761')" 
+                            class="color-option" 
+                            [ngClass]="{'color-selected': (newCollectionColor=='#699761')}"
+                            style="background-color:#699761">&nbsp;</div>
+
+                    <div    (click)="setColor('#32662A')" 
+                            class="color-option" 
+                            [ngClass]="{'color-selected': (newCollectionColor=='#32662A')}"
+                            style="background-color:#32662A;">&nbsp;</div>
+
+                </div>
+
+                <div style="text-align: center;margin-top: 8px;">
+
+                    <div    (click)="setColor('#60998F')" 
+                            class="color-option" 
+                            [ngClass]="{'color-selected': (newCollectionColor=='#60998F')}"
+                            style="background-color:#60998F;">&nbsp;</div>
+
+                    <div    (click)="setColor('#29685C')" 
+                            class="color-option" 
+                            [ngClass]="{'color-selected': (newCollectionColor=='#29685C')}"
+                            style="background-color:#29685C;">&nbsp;</div>
+
+                    <div    (click)="setColor('#759CB7')" 
+                            class="color-option" 
+                            [ngClass]="{'color-selected': (newCollectionColor=='#759CB7')}"
+                            style="background-color:#759CB7;">&nbsp;</div>
+
+                    <div    (click)="setColor('#537997')" 
+                            class="color-option" 
+                            [ngClass]="{'color-selected': (newCollectionColor=='#537997')}"
+                            style="background-color:#537997;">&nbsp;</div>
+
+                    <div    (click)="setColor('#976097')" 
+                            class="color-option" 
+                            [ngClass]="{'color-selected': (newCollectionColor=='#976097')}"
+                            style="background-color:#976097;">&nbsp;</div>
+
+                    <div    (click)="setColor('#692869')" 
+                            class="color-option" 
+                            [ngClass]="{'color-selected': (newCollectionColor=='#692869')}"
+                            style="background-color:#692869;">&nbsp;</div>
+
+                </div>   
+
+            </div>             
+        </div>   
+
+        <div style="background-color:#FFFFFF;">
+            <div class="dialog-basic-area button-area">
+                <button md-button (click)="newCollectionCancel()">{{ 'collectionNew_cancel' | translate }}</button>
+                <button md-raised-button color="primary" (click)="newCollectionCreate()" style="background-color: #3D6B8B">
+                    <span *ngIf="isNewCollection()">{{ 'collectionNew_createCollection' | translate }}</span>
+                    <span *ngIf="isEditCollection()">{{ 'collectionNew_storeChanges' | translate }}</span>
+                </button>
+            </div>             
+        </div>    
+</section>
+
+<!-- error if present-->
+<section *ngIf="(lastError!=null)" style="text-align: center;">
+    <p style="color:red;">{{lastError}}</p>
+    <button md-raised-button color="warn" (click)="refreshContent()">{{ 'collectionNew_reload' | translate }}</button>
+</section>
+
+</div>

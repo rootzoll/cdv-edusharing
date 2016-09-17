@@ -1,0 +1,77 @@
+{
+
+    "collection" : "*********************** +collection & edu-card component *************************************",
+
+    "collections_collection" : "Sammlung",
+    "collections_collections" : "Sammlungen",
+    "collections_material" : "Material",
+    "collections_materials" : "Materialien",
+
+    "collections_myCollectionsLong" : "Meine Sammlungen",
+    "collections_orgaCollectionsLong" : "Sammlungen meiner Organisation",
+    "collections_allCollectionsLong" : "Alle Sammlungen",
+
+    "collections_myCollectionsShort" : "Meine",
+    "collections_orgaCollectionsShort" : "Organisationen",
+    "collections_allCollectionsShort" : "Alle",
+
+    "collections_accessPrivate" : "Privat",
+    "collections_accessOrga" : "Organisationen",
+    "collections_accessPublic" : "Öffentlich",
+
+    "collections_description" : "Beschreibung",
+    "collections_noOrgaCollections" : "Ihre Organisationen haben noch keine Sammlungen freigegeben.",
+    "collections_noMyCollections" : "Sie haben noch keine Sammlungen angelegt.",
+
+    "collections_content" : "Materialien",
+    "collections_noContentAvailable" : "Hier sind noch keine Materialien vorhanden.",
+    "collections_howToAddContent" : "Sie können in der Suchumgebung nach geeigneten Materialien für ihre Sammlung suchen. Klicken sie einfach auf ein geeignetes Material und wählen sie dann die Option 'zu Sammlung hinzufügen' aus.",
+    "collections_proceedToSearch" : "weiter zur Suche",
+
+    "collections_reload" : "Neu laden",
+    "collections_createNewCollection" : "Sammlung erstellen",
+
+    "collections_empty" : "leer",
+    "collections_originalMissing" : "Das Orginal wurde gelöscht und steht nicht mehr zur Verfügung.",
+    "collections_originalMissingDelete" : "Das Orginal wurde gelöscht und steht nicht mehr zur Verfügung. Soll die Referenz aus der Sammlung entfernt werden?",
+
+    "collections_confirmDelete" : "Sammlung wirklich löschen? Bei vielen Untersammlungen kann dies einige Zeit dauern.",
+    
+    "contentDetail" : "*********************** content detail component *************************************",
+
+    "contentDetail_back" : "Zurück",
+    "contentDetail_remove" : "Aus Sammlung entfernen",
+    "contentDetail_more" : "Mehr",
+    "contentDetail_download" : "Download",
+    "contentDetail_errorLoad" : "Die Ansicht konnte nicht geladen werden ... ist der Renderservice verfügbar?",
+
+
+    "collectionNew" : "*********************** +collection-new component *************************************",
+
+    "collectionNew_createNewCollection" : "Sammlung neu erstellen",
+    "collectionNew_editCollection" : "Sammlung bearbeiten",
+    "collectionNew_setName" : "Wie soll Ihre neue Sammlung heißen?",
+    "collectionNew_setDescription" : "Beschreibung der Sammlung:",
+    "collectionNew_setAccess" : "Wer darf die Sammlung sehen?",
+    "collectionNew_setAccessOnlyMe" : "nur ich",
+    "collectionNew_setAccessMyOrga" : "meine Organisationen",
+    "collectionNew_setAccessPublic" : "alle",
+    "collectionNew_askName" : "Bitte einen Namen für die Sammlung eingeben.",
+
+    "collectionNew_cancel" : "abbrechen",
+    "collectionNew_continue" : "weiter",
+
+    "collectionNew_preview" : "Vorschau meiner Sammlung",
+    "collectionNew_contents" : "Materialien",
+    "collectionNew_setColor" : "Farbe für diese Sammlung:",
+    "collectionNew_accessPrivate" : "Privat",
+    "collectionNew_accessOrga" : "Organisationen",
+    "collectionNew_accessPublic" : "Öffentlich",
+
+    "collectionNew_createCollection" : "Sammlung erstellen",
+    "collectionNew_storeChanges" : "speichern",
+
+    "collectionNew_reload" : "Neu laden",
+    "collectionNew_placeholderTitle" : "Titel Ihrer Sammlung ...",
+    "collectionNew_placeholderDescription" : "Worum geht es in Ihrer Sammlung?"
+}

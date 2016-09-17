@@ -1,0 +1,77 @@
+{
+
+    "collection" : "*********************** +collection & edu-card component *************************************",
+
+    "collections_collection" : "collection",
+    "collections_collections" : "collections",
+    "collections_material" : "material",
+    "collections_materials" : "materials",
+
+    "collections_myCollectionsLong" : "My Collections",
+    "collections_orgaCollectionsLong" : "Collections of my Organisations",
+    "collections_allCollectionsLong" : "All Collections",
+
+    "collections_myCollectionsShort" : "My",
+    "collections_orgaCollectionsShort" : "Organisations",
+    "collections_allCollectionsShort" : "All",
+
+    "collections_accessPrivate" : "private",
+    "collections_accessOrga" : "organisations",
+    "collections_accessPublic" : "public",
+
+    "collections_description" : "Description",
+    "collections_noOrgaCollections" : "Your organisations have not shared any collections yet.",
+    "collections_noMyCollections" : "You have not created any collections yet.",
+
+    "collections_content" : "Content",
+    "collections_noContentAvailable" : "No content available yet.",
+    "collections_howToAddContent" : "Use the search area to find contents for your collection. Just click on it and choose the option 'add to collection'.",
+    "collections_proceedToSearch" : "proceed to search",
+
+    "collections_reload" : "reload",
+    "collections_createNewCollection" : "Create new Collection",
+
+    "collections_empty" : "empty",
+    "collections_originalMissing" : "The original was deleted and is no longer available.",
+    "collections_originalMissingDelete" : "The original was deleted and is no longer available. Do you want to remove from collection?",
+
+    "collections_confirmDelete" : "Really DELETE collection? Can take some time to process when a lot of sub-collections.",
+
+    "contentDetail" : "*********************** content detail component *************************************",
+
+    "contentDetail_back" : "back",
+    "contentDetail_remove" : "remove from collection",
+    "contentDetail_more" : "more",
+    "contentDetail_download" : "download",
+    "contentDetail_errorLoad" : "Was not able to load content view ... is render service available?",
+
+    "collectionNew" : "*********************** +collection-new component *************************************",
+
+    "collectionNew_createNewCollection" : "Create new collection",
+    "collectionNew_editCollection" : "Edit Collection",
+    "collectionNew_setName" : "name of the collection:",
+    "collectionNew_setDescription" : "description of collection:",
+    "collectionNew_setAccess" : "Who is able to see the collection?",
+    "collectionNew_setAccessOnlyMe" : "just me",
+    "collectionNew_setAccessMyOrga" : "my organisations",
+    "collectionNew_setAccessPublic" : "all",
+    "collectionNew_askName" : "Please enter a name for the collection.",
+
+    "collectionNew_cancel" : "cancel",
+    "collectionNew_continue" : "continue",
+
+    "collectionNew_preview" : "preview of collection",
+    "collectionNew_contents" : "contents",
+    "collectionNew_setColor" : "color of collection:",
+    "collectionNew_accessPrivate" : "private",
+    "collectionNew_accessOrga" : "organisations",
+    "collectionNew_accessPublic" : "public",
+
+    "collectionNew_createCollection" : "create collection",
+    "collectionNew_storeChanges" : "save changes",
+
+    "collectionNew_reload" : "reload",
+    "collectionNew_placeholderTitle" : "title of your collection ...",
+    "collectionNew_placeholderDescription" : "whats is your collection about?"
+
+}

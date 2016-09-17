@@ -1,0 +1,73 @@
+<md-card class="base-card" *ngIf='!isNewCollectionPlaceholder'>
+
+    <!-- ******** CARD IMAGE ********** -->
+
+    <div *ngIf="isCollection" class="card-collection-image-container">
+        <img *ngIf="collection.icon!=null" class="card-image-collection" src="data:image/png;base64,{{collection.icon}}" />
+        <div *ngIf="collection.icon==null" class="card-image-icon-container" [style.background-color]="collection.color">
+            <i class="material-icons" style="font-size: 75px; margin-top: 23px;">collections</i>
+        </div>    
+    </div>   
+
+    <div *ngIf="!isCollection" class="card-image-container">
+         <!-- <img class="card-image-content" src="./images/edu.png" /> -->
+       <img class="card-image-content" src="{{node.getPreviewUrl()}}" />
+    </div>   
+
+    <!-- ******** CARD TEXT ********** -->
+
+    <section *ngIf='isContent' class="card-content-textarea">
+        <!-- CONTENT card text -->
+        <div class="card-headline" style="
+            padding-left: 16px;
+            padding-bottom: 20px;
+            overflow: hidden;
+            height: 44px;
+            max-width:  165px;">
+            {{breakName(node.getName())}}
+        </div>    
+
+        <div class="card-collection-ownerline" style="font-size: 85%;padding-left:16px;">
+            <i class="material-icons" style="font-size:100%;margin-bottom: 1px;">person</i>
+            {{node.getCreatorName()}}
+        </div>  
+
+        <div class="card-collection-ownerline" style="font-size: 85%; padding-left:16px;">
+            <i class="material-icons icon-bottom" style="font-size:100%;margin-bottom: 1px;">alarm</i>
+            {{node.getCreateTime()}}
+        </div>
+    </section>
+
+    <section *ngIf='isCollection' class="card-collection-textarea" [style.background-color]="collection.color" >
+        <!-- COLLECTION card text -->
+        <div class="card-collection-headline">
+            {{collection.title}}
+        </div>
+        <div class="card-collection-subline">
+            <span *ngIf="(collection.childCollectionsCount==1)">{{collection.childCollectionsCount}} {{ 'collections_collection' | translate }}</span>
+            <span *ngIf="(collection.childCollectionsCount>1)">{{collection.childCollectionsCount}} {{ 'collections_collections' | translate }}</span>
+            <span *ngIf="((collection.childReferencesCount>0) && (collection.childCollectionsCount>0))"> + </span>
+            <span *ngIf="(collection.childReferencesCount==1)">{{collection.childReferencesCount}} {{ 'collections_material' | translate }}</span>
+            <span *ngIf="(collection.childReferencesCount>1)">{{collection.childReferencesCount}} {{ 'collections_materials' | translate }}</span>
+            <span *ngIf="((collection.childReferencesCount==0) && (collection.childCollectionsCount==0))">&nbsp;</span>
+        </div>  
+        <div class="card-collection-ownerline">
+            <i class="material-icons icon-bottom">person</i> {{collection.owner.firstName}} {{collection.owner.lastName}}
+        </div>  
+
+        <div class="card-collection-ownerline">
+            <span *ngIf="collection.getPrivacyScope()==0"><i class="material-icons icon-bottom">help outline</i> ...</span>
+            <span *ngIf="collection.getPrivacyScope()==1"><i class="material-icons icon-bottom">lock outline</i> {{ 'collections_accessPrivate' | translate }}</span>
+            <span *ngIf="collection.getPrivacyScope()==2"><i class="material-icons icon-bottom">domain</i> {{ 'collections_accessOrga' | translate }}</span>
+            <span *ngIf="collection.getPrivacyScope()==3"><i class="material-icons icon-bottom">language</i> {{ 'collections_accessPublic' | translate }}</span>
+        </div>
+        
+    </section>   
+
+</md-card>
+
+<div class="base-card new-collection-placeholder-card" *ngIf='isNewCollectionPlaceholder'>
+    <!-- CREATE A NEW COLLECTION PLACEHOLDER -->
+    <div class="new-collection-placeholder-plus">+</div>
+    <div class="new-collection-placeholder-text"> {{ 'collections_createNewCollection' | translate }}</div>
+</div>

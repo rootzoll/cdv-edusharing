@@ -1,0 +1,257 @@
+table, div {
+   font-family: open_sansregular;
+   font-size: 14px;
+}
+
+.collections-cards-div {
+    clear: left;
+    width: 100%;
+    margin-top: 8px;
+}
+
+.table-tab {
+    vertical-align: bottom;
+    text-align: center;
+    padding: 10px;
+    padding-bottom: 3px;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    border-bottom-color: #4E7998;
+    color: #4E7998;
+}
+
+.table-tab-selected {
+    vertical-align: bottom;
+    padding: 10px;
+    padding-bottom: 3px;
+    background-color: white;
+    border-bottom-width: 3px;
+    border-bottom-style: solid;
+    border-bottom-color: #4E7998;
+}
+
+.section-headline {
+    color: #5F5F5F;
+    padding-top: 10px;
+    padding-bottom: 8px;
+}
+
+.collections-breadcrumb {
+    margin-top: 10px;
+    background-color: #E3E3E3;
+    padding: 8px;
+}
+
+.breadcrumb {
+    display: inline-block;
+}
+
+.breadcrumb-clickable {
+    color: #4E7998;
+    cursor: pointer;
+}
+
+.collections-master-div {
+    padding-left: 270px;
+    padding-right: 200px;
+}
+
+.collections-header-textarea {
+    padding: 20px;
+}
+
+.collections-header-texttop {
+    text-align: left;
+}
+
+.collection-new-preview-infoarea {
+    min-height: 120px;
+    padding: 16px;
+    color: white;
+}
+
+.collection-new-preview-headline {
+    font-size: 200%;
+}
+
+.collection-new-preview-subline {
+    font-size: 120%;
+    margin-bottom: 16px;
+    opacity: 0.85;
+}
+
+.collection-new-preview-infoline {
+    margin-left: -2px;
+    opacity: 0.85;
+    margin-bottom: 4px;
+}
+
+.collection-nocontent-container {
+    text-align: center;
+}
+
+.collection-nocontent-big {
+    font-size: 200%;
+    padding:16px;
+    padding-top: 8px;
+    padding-left: 0px;
+}
+
+.collection-nocontent-small {
+    padding:16px;
+    padding-top: 0px;
+    padding-left: 0px;
+}
+
+.icon-bottom {
+    vertical-align: bottom;
+}
+
+.dialog-basic-area {
+    padding:16px;
+    padding-bottom:8px;
+}
+
+.dialog-dark-area {
+    padding:16px;
+    padding-bottom:8px;
+    background: #EFEFEF;
+}
+
+.button-area {
+    text-align: right;
+}
+
+.dialog-input {
+    width: 90%;
+    height: 25px;
+    padding: 4px;
+}
+
+.card-collection-image-container {
+    text-align: center;
+    vertical-align: middle;
+    height: 184px;
+    background-color: white;
+    color: white;
+}
+
+.card-image-icon-container {
+    height: 160px;
+    width: 160px;
+    border-radius: 160px;
+    background-color: #759CB7;
+    margin: auto;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.collections-header  {
+    background-color: #759CB7;
+    color: #ffffff;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    height: 110%;
+    width: 250px;
+}
+
+.collections-master-div-notabs {
+    padding-right: 16px;
+}
+
+.table-tab-title-short {
+    display: none;
+}
+
+.collections-master-div {
+    min-width: 625px;
+}
+
+.collections-edit-button {
+    position: absolute;
+    right: 38px;
+    top: 165px;
+    background-color: rgba(255,255,255,0.5);
+    padding: 2px;
+    color: #6b6b6b;
+    border-radius: 2px;
+    cursor: pointer;
+}
+
+.collections-delete-button {
+    position: absolute;
+    right: 5px;
+    top: 165px;
+    background-color: rgba(255,255,255,0.5);
+    padding: 2px;
+    color: #6b6b6b;
+    border-radius: 2px;
+    cursor: pointer;
+}
+
+@media only screen and (max-width: 1065px) {
+
+    .table-tab-title-long {
+        display: none;
+    }
+
+    .table-tab-title-short {
+        display: unset;
+    }
+
+}
+
+@media only screen and (max-width: 940px) {
+
+    .collections-master-div {
+        min-width: unset;
+    }
+
+}
+
+
+@media only screen and (max-width: 840px) {
+
+    .collections-header {
+        margin-top: 10px;
+        position: unset;
+        top: unset;
+        left: unset;
+        height: unset;
+        width: unset;
+    }
+
+    .collections-header-texttop {
+        text-align: center;
+    }
+
+    .table-tab-middle {
+        width: unset;
+    }
+
+    .collections-master-div {
+        padding-left: 8px;
+        padding-right: 8px;
+    }
+
+    .collections-master-div-notabs {
+        padding-right: 8px;
+        min-width: unset;
+    }
+
+    .collections-edit-button {
+        right: 50px;
+        top: 220px;
+    }
+
+    .collections-delete-button {
+        right: 14px;
+        top: 220px;
+    }
+
+    .card-collection-image-container {
+        height: 200px;
+    }
+
+}

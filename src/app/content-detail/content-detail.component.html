@@ -1,0 +1,62 @@
+<div class="panel panel-default">
+
+  <!-- Action Buttons -->
+  <table style="width:100%">
+    <tr>
+      <td>
+        
+      <button md-raised-button color="primary" (click)="back()" style="background-color: white; color: #4F7A98">
+          <div style="
+            display: inline-block;
+            position: relative;
+            top: 7px;
+            left: -6px;">
+            <i class="material-icons" style="">arrow_back</i>
+          </div><div style="display: inline-block;">{{ 'contentDetail_back' | translate }}</div>
+      </button>
+      
+      </td><td style="text-align: right;">
+        
+
+      <button md-raised-button color="primary" (click)="remove()" style="background-color: #4F7A98; color: white;">
+          <div style="
+            display: inline-block;
+            position: relative;
+            top: 7px;
+            left: -6px;">
+            <i class="material-icons" style="">remove_circle_outline</i>
+          </div><div style="display: inline-block;">{{ 'contentDetail_remove' | translate }}</div>
+      </button>
+      
+      <!--
+      <button md-raised-button color="primary" (click)="more()" style="background-color: white; color: #4F7A98">
+          <div style="display: inline-block;">{{ 'contentDetail_more' | translate }}</div><div style="
+            display: inline-block;
+            position: relative;
+            top: 7px;
+            right: -4px;">
+            <i class="material-icons" style="">keyboard_arrow_down</i>
+          </div>
+      </button>
+      -->
+      
+      </td>
+    </tr>
+  </table>
+
+  <!-- LOADING INFO -->
+  <div *ngIf="loading" style="text-align: center; padding-top: 24px;">
+        <img src="images/spinner.gif">
+  </div>
+
+  <!-- ERROR INFO -->
+  <div *ngIf="loadError" style="text-align: center; padding-top: 24px;color:red;">
+    {{ 'contentDetail_errorLoad' | translate }}
+  </div>
+
+  <!-- RENDER SNIPPET -->
+  <div id="renderDiv" style="margin-top:10px; margin-right: 3px; margin-left: 3px;">
+    <iframe id="renderFrame" style="width:100%; min-height: 640px; border-width: 0px;" src="" scrolling="yes" onload="iframeLoaded();"></iframe>
+  </div>
+
+</div>

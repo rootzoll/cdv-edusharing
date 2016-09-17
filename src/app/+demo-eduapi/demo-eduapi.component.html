@@ -1,0 +1,36 @@
+<div class="main">
+<p>
+    edu-sharing API DEMO
+</p>
+
+<hr>
+
+<button (click)="initApi()">initApi</button>
+
+<pre>{{initData}}</pre>
+
+<hr>
+
+<button (click)="getOwnProfile()">getOwnProfile()</button>
+
+<pre>{{profileData}}</pre>
+<hr>
+
+<input [(ngModel)]="createCollectionName" placeholder="Collection Name" /><br>
+<button (click)="createCollection()">createCollection()</button>
+
+<pre>{{createCollectionData}}</pre>
+
+<hr>
+
+<select [(ngModel)]="getCollectionsSelect">
+  <option value=0>My Collections</option>
+  <option value=1>My Organizations</option>
+  <option value=2>All Collections</option>
+</select><br>
+<button (click)="getRootCollections()">getRootCollections()</button>
+
+<pre>{{rootCollectionData}}</pre>
+
+<hr>
+<div>
