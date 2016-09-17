@@ -44,6 +44,8 @@ export class CollectionsComponent implements OnInit, GwtEventListener {
     private isLoading:boolean = false;
     private isReady:boolean = false;
     private clearSearchOnNextStateChange:boolean = false;
+
+    private showLehrplanAnalysisButton:boolean = false;
     
     private collectionContent:EduData.CollectionContent;
     private filteredOutCollections:Array<EduData.Collection> = new Array<EduData.Collection>();
@@ -278,6 +280,9 @@ export class CollectionsComponent implements OnInit, GwtEventListener {
             // add an empty collection for the "add new colleciton" card
             if (this.isAllowedToEditCollection()) this.collectionContent.collections.unshift(new EduData.Collection());
             
+            // check if lehrplan root 
+            this.showLehrplanAnalysisButton = (this.collectionContent.collection.title!=null) && (this.collectionContent.collection.title.indexOf('Lehrplan')>=0);
+
             // fire for every collection content a request for permission
             if (this.collectionContent.collections!=null) {
                 this.collectionContent.collections.forEach( coll=> {
@@ -408,6 +413,10 @@ export class CollectionsComponent implements OnInit, GwtEventListener {
         // make sure the top area search field is clean
         this.gwtInterface.sendEvent("clearsearch", null);
 
+    }
+
+    showLehrplanAnalysis() : void {
+        alert("TODO");
     }
 
     displayCollectionById(id:string) : void {

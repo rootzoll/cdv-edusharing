@@ -60,8 +60,7 @@ export class EduApiService {
   // please order: first relative path, then local machines, then on the open net
   private possibleApiEndpoints : string[] = [   
       "./../rest/",
-      "http://alfresco5.vm:8080/edu-sharing/rest/",
-      "http://appserver7.metaventis.com:7116/edu-sharing/rest/"
+      "http://appserver7.metaventis.com:7117/edu-sharing/rest/"
   ];
 
   // the actual set API base url (use first in list)

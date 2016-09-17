@@ -98,6 +98,10 @@
                <span *ngIf="(collectionContent.collection.description==null) || (collectionContent.collection.description.length==0)" style="padding:2px;">-</span>
            </div>
 
+           <div *ngIf="showLehrplanAnalysisButton" style="padding-top: 16px;">
+    <button md-raised-button color="warn" (click)="showLehrplanAnalysis()">Analyse</button>
+           </div>
+
         </div>
 
 
