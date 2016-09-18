@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-
+import { Component, OnInit, provide } from '@angular/core';
+provide(Window, { useValue: window }); // will not work beyond rc3: https://stackoverflow.com/questions/34177221/angular2-how-to-inject-window-into-an-angular2-service
 import { MD_BUTTON_DIRECTIVES } from '@angular2-material/button';
 import { MD_INPUT_DIRECTIVES } from '@angular2-material/input';
 import { ROUTER_DIRECTIVES, Router, ActivatedRoute } from '@angular/router';
@@ -30,8 +30,8 @@ export class Breadcrumb {
       MD_BUTTON_DIRECTIVES, 
       MD_INPUT_DIRECTIVES
       ],
-  providers: [GwtInterfaceService],
-  pipes: [TranslatePipe]
+  providers: [GwtInterfaceService, {provide: Window, useValue: window}],
+  pipes: [TranslatePipe],
 })
 export class CollectionsComponent implements OnInit, GwtEventListener {
 
@@ -46,6 +46,8 @@ export class CollectionsComponent implements OnInit, GwtEventListener {
     private clearSearchOnNextStateChange:boolean = false;
 
     private showLehrplanAnalysisButton:boolean = false;
+    private showLehrplanAnalyse:boolean = false;
+    private lehrplanAnalyseData:Object = {};
     
     private collectionContent:EduData.CollectionContent;
     private filteredOutCollections:Array<EduData.Collection> = new Array<EduData.Collection>();
@@ -416,7 +418,9 @@ export class CollectionsComponent implements OnInit, GwtEventListener {
     }
 
     showLehrplanAnalysis() : void {
-        alert("TODO");
+        // alert("TODO");
+        this.showLehrplanAnalyse = ! this.showLehrplanAnalyse;
+        window['lehrplanAnalyseData'] = { test : 'hallo' }// this.lehrplanAnalyseData;
     }
 
     displayCollectionById(id:string) : void {

@@ -170,3 +170,9 @@
 <div *ngIf="(contentDetailObject!=null)" class="collections-master-div" style="padding-right: 16px;">
     <content-detail [ref]="contentDetailObject" [collection]="collectionContent.collection" (onBackClick)="contentDetailBack()"></content-detail>
 </div>
+
+<!--- CODING DA VINCI D3 VISUALIZATION ---->
+
+<div *ngIf="(showLehrplanAnalyse)">
+    <iframe src="test.html"></iframe>
+</div>
