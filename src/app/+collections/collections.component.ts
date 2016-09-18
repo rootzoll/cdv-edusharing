@@ -418,9 +418,8 @@ export class CollectionsComponent implements OnInit, GwtEventListener {
     }
 
     showLehrplanAnalysis() : void {
-        // alert("TODO");
         this.showLehrplanAnalyse = ! this.showLehrplanAnalyse;
-        window['lehrplanAnalyseData'] = { test : 'hallo' }// this.lehrplanAnalyseData;
+        window['lehrplanAnalyseData'] = this.lehrplanAnalyseData;
     }
 
     displayCollectionById(id:string) : void {
