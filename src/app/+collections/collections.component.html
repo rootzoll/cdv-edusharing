@@ -20,7 +20,7 @@
 </table>
 
 <!-- breadcrumbs -->
-<div *ngIf="!isRootLevelCollection() && (tabSelected>=-1)" class="collections-breadcrumb">
+<div *ngIf="!isRootLevelCollection() && (tabSelected>=-1) && (!showLehrplanAnalyse)" class="collections-breadcrumb">
     
     <!-- root category -->
     <div *ngIf="tabSelected==-1" class="breadcrumb breadcrumb-clickable" (click)="selectTabMyCollections()" >{{ 'collections_collections' | translate }}</div>
@@ -114,7 +114,7 @@
 
 <!-- content (collection cards) if not error -->
 
-<section class="collections-cards-div" *ngIf="((lastError==null) && (!isLoading) && (contentDetailObject==null))" >
+<section class="collections-cards-div" *ngIf="((lastError==null) && (!isLoading) && (contentDetailObject==null)) && (!showLehrplanAnalyse)" >
 
                 <div *ngIf="(!isRootLevelCollection()) && (collectionContent.collections.length>0)" class="section-headline">{{ 'collections_collections' | translate }}</div>
 
@@ -134,7 +134,7 @@
 </section>    
 
 <!-- content (content cards) if not error -->
-<section class="collections-cards-div" *ngIf="((lastError==null) && (!isLoading) && (isReady) && !isRootLevelCollection() && (contentDetailObject==null))" >
+<section class="collections-cards-div" *ngIf="((lastError==null) && (!isLoading) && (isReady) && !isRootLevelCollection() && (contentDetailObject==null)) && (!showLehrplanAnalyse)" >
             
                 <div class="section-headline">{{ 'collections_content' | translate }}</div>
 
@@ -151,7 +151,11 @@
                     </div>
                     <button md-raised-button color="primary" (click)="switchToSearch()" style="background-color: #4F7A98">{{ 'collections_proceedToSearch' | translate }}</button>
                 </div>
-                
+
+                <!-- GLAM Search -->
+                <div *ngIf="collectionContent.collection.ref.id!='-root-'" class="section-headline collection-nocontent-container">
+                    <button md-raised-button color="warn" (click)="switchToGlamSearch()" style="background-color: #4F7A98">GLAM Search</button>
+                </div>
 
 </section>    
 
@@ -174,5 +178,5 @@
 <!--- CODING DA VINCI D3 VISUALIZATION ---->
 
 <div *ngIf="(showLehrplanAnalyse)">
-    <iframe style="width:100%; height:700px"  src="categoryVisualization.html"></iframe>
+    <iframe style="width:100%; height:700px;border: 7px;margin-top: -27px;"  src="categoryVisualization.html"></iframe>
 </div>

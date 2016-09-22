@@ -520,6 +520,14 @@ export class PersonalProfile {
 
 }
 
+export class MediaCount {
+
+    public pictures:number = 0;
+    public videos:number = 0;
+    public pdfs:number = 0;
+
+}
+
 /*******************************
     TOOLS
 ********************************/

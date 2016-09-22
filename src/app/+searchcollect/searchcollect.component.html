@@ -1,0 +1,23 @@
+<div *ngIf="isReady" style="padding: 16px; text-align: center;">
+
+    <h1>
+        Import Open Content from GLAM Sources into Collection '{{collection.title}}'
+    </h1>
+
+    <div>
+        <md-input [(ngModel)]="userSearchTerm" placeholder="search GLAM sources" align="end" style="width:80%; max-width: 400px;"></md-input><button md-raised-button color="primary" (click)="doSearch()" style="margin-left: 10px;"><i class="material-icons" style="padding-top:10px">search</i></button>  
+    </div>
+
+    <p *ngIf="!isLoading">
+        <button md-raised-button color="warn" (click)="backToCollection()">Back To Collection</button>  
+    </p>
+
+<div *ngIf="!isLoading">
+   <edu-card *ngFor="let reference of resultNodes" [node]="reference" (click)="onContentClick(reference)"></edu-card>
+</div>
+
+</div>
+
+<div *ngIf="(!isReady) || (isLoading)" style="padding: 16px; text-align: center;">
+    <img src="images/spinner.gif">
+</div>

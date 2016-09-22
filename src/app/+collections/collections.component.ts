@@ -47,7 +47,6 @@ export class CollectionsComponent implements OnInit, GwtEventListener {
 
     private showLehrplanAnalysisButton:boolean = false;
     private showLehrplanAnalyse:boolean = false;
-    private lehrplanAnalyseData:Object = {};
     
     private collectionContent:EduData.CollectionContent;
     private filteredOutCollections:Array<EduData.Collection> = new Array<EduData.Collection>();
@@ -220,6 +219,10 @@ export class CollectionsComponent implements OnInit, GwtEventListener {
     switchToSearch() : void {
         console.log("gwtInterface: trying to send signal to GWT for changing to search view");
         this.gwtInterface.sendEventSwitchToSearchView();
+    }
+
+    switchToGlamSearch() : void {
+        this.router.navigate(['/searchcollect/'+this.collectionContent.collection.ref.id]);
     }
 
     buttonCollectionDelete() : void {
@@ -418,8 +421,20 @@ export class CollectionsComponent implements OnInit, GwtEventListener {
     }
 
     showLehrplanAnalysis() : void {
-        this.showLehrplanAnalyse = ! this.showLehrplanAnalyse;
-        window['lehrplanAnalyseData'] = this.lehrplanAnalyseData;
+
+        this.isLoading = true;
+        this.eduApiService.analyseCollection(this.collectionContent.collection.ref.id).subscribe( result => {
+            // WIN
+            this.isLoading=false;
+            this.showLehrplanAnalyse = ! this.showLehrplanAnalyse;
+            window['lehrplanAnalyseData'] = result;
+
+        }, error => {
+            // FAIL 
+            this.isLoading=false;
+            console.dir("Was not able to process statistic.");
+        });
+
     }
 
     displayCollectionById(id:string) : void {

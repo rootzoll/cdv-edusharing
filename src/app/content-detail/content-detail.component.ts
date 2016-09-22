@@ -134,9 +134,7 @@ export class ContentDetailComponent implements OnInit {
             exucuteNextScript(arrayOfScriptElements, index+1);
           }
         } else {
-          // local script
-          //try {
-
+ 
               try {
                 var s = document.createElement('script');
                 s.type = 'text/javascript';  
@@ -155,9 +153,7 @@ export class ContentDetailComponent implements OnInit {
               exucuteNextScript(arrayOfScriptElements, index+1);
 
             console.log("OK LOCAL SCRIPT");
-          //} catch (e) {
-           // console.warn("FAIL LOCAL SCRIPT ("+JSON.stringify(e)+"): "+nextScriptElement.text);
-          //}
+
           exucuteNextScript(arrayOfScriptElements, index+1);
         }
       };

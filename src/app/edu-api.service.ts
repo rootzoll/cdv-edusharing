@@ -15,6 +15,7 @@ import {
     LocalPermissions,
     Organization,
     PersonalProfile,
+    MediaCount,
     GETCOLLECTIONS_SCOPE
 } from './edu-api.data';
 
@@ -60,6 +61,7 @@ export class EduApiService {
   // please order: first relative path, then local machines, then on the open net
   private possibleApiEndpoints : string[] = [   
       "./../rest/",
+      //"http://alfresco5.vm:8080/edu-sharing/rest/"
       "http://appserver7.metaventis.com:7117/edu-sharing/rest/"
   ];
 
@@ -610,6 +612,37 @@ export class EduApiService {
         });
     }
 
+    // get the organization available
+    search(keyword:string) : Observable<Array<Node>> {
+
+        return Observable.create( observer => {
+
+            this.basicApiHeaderConfig().subscribe( headers => {
+ 
+                var url = this.apiBaseUrl+'search/v1/queries/-home-/-default-/ngsearch?maxItems=50&skipCount=0';
+                var data = '{"criterias":[{"property":"ngsearchword","values":["'+keyword+'"]}],"facettes":["cm:creator"]}';
+                headers.append('Content-Type', 'application/json');
+                
+                this.http.post(url,data,{
+                    headers: headers
+                }).subscribe(
+                    // WIN
+                    (res: Response) => {
+                        let result:Array<Node> = Tools.fromJSONArray<Node>(res.json().nodes, Node.fromJSON);
+                        observer.next( result );
+                        observer.complete();
+                    },
+                    // FAIL
+                    error => {
+                        this.handleApiError(url, observer, error);
+                    }
+                );
+
+            });
+         
+        });
+    }
+
     httpGET(url:string) : Observable<string> {
         return Observable.create( observer => {
             this.http.get(url).subscribe(
@@ -631,43 +664,7 @@ export class EduApiService {
               return Observable.create( observer => {
 
             this.basicApiHeaderConfig().subscribe( headers => {
- /*
-            var result:string = `<style type="text/css">
-@import "../../theme/default/css/dynamic.css"
-</style>
 
-<div class="edusharing_rendering_wrapper">
-	<div class="edusharing_rendering_metadata_top"><span class="edusharing_rendering_metadata_top_toggle edusharing_rendering_cursor_pointer" onclick="toggle_edusharing_rendering_metadata()">Informationen ein-/ausblenden</span></div>
-		<div id="edusharing_rendering_metadata">
-		<div class="edusharing_rendering_metadata_header">
-			<span class="edusharing_rendering_metadata_header_x edusharing_rendering_cursor_pointer" onclick="close_edusharing_rendering_metadata()">X</span>
-			Bildschirmfoto 2016-09-15 um 13.11.31.png		</div>
-		<div class="edusharing_rendering_metadata_body">
-<label class="edusharing_rendering_metadata_body_label">Creator</label><span class="edusharing_rendering_metadata_body_value">admin</span><label class="edusharing_rendering_metadata_body_label">Version</label><span class="edusharing_rendering_metadata_body_value">1.0</span><label class="edusharing_rendering_metadata_body_label">Repository id</label><span class="edusharing_rendering_metadata_body_value">repo</span><label class="edusharing_rendering_metadata_body_label">License</label><span class="edusharing_rendering_metadata_body_value">-</span>		</div>
-	</div>	<div class="edusharing_rendering_content_wrapper">
-		<h1>Öffnen des Objekts leider nicht möglich.</h1>
-		Um das Objekt trotzdem zu benutzen, können Sie es herunterladen.<br><br>
-		<a href="http://appserver7.metaventis.com:7116/esrender/modules/cache/doc/2016/09/15/12/55/11/9aa24595-4b68-4f3f-851c-0e4a271f5b5a1.0?ESSID=7cppje9jbpso979v0te85458j7&amp;token=ff7fad0d69f2aba7960f2189659aa0d4" target="_blank" class="edusharing_rendering_content">Download</a>
-	</div>
-</div>
-
-<script>
-	function toggle_edusharing_rendering_metadata() {
-		var el = document.getElementById('edusharing_rendering_metadata');
-		el.style.display = (el.style.display != 'none' ? 'none' : '' );
-	}
-	
-	function close_edusharing_rendering_metadata() {
-		document.getElementById('edusharing_rendering_metadata').style.display = 'none';
-		return true;
-	}
-</script>`;
-
-
-            observer.next( result );
-            observer.complete();
-
-*/
                 var url = this.apiBaseUrl+'rendering/v1/details/-home-/'+content.ref.id;
 
                 this.http.get(url,{
@@ -725,6 +722,85 @@ export class EduApiService {
 
         });
     } 
+
+    public countMediaInCollection(collectionId:string) : Observable<MediaCount> {
+
+        return Observable.create( observer => {
+
+            var count:MediaCount = new MediaCount();
+
+            this.getCollectionContent(GETCOLLECTIONS_SCOPE.ALL, collectionId, "-home-").subscribe( data => {
+                // WIN
+
+                var count:MediaCount = new MediaCount();
+                if (data.references!=null) data.references.forEach(element => {
+                    console.dir(element);
+                });
+                
+                observer.next( count );
+                observer.complete();
+            }, error => {
+                // FAIL
+                console.log("FAIL: "+JSON.stringify(error));
+                var count:MediaCount = new MediaCount();
+                observer.next( count );
+                observer.complete();
+            });
+        });
+
+    }
+
+    public analyseCollection(collectionId:string) : Observable<any> {
+
+        return Observable.create( observer => {
+
+            this.getCollectionContent(GETCOLLECTIONS_SCOPE.ALL, collectionId, "-home-").subscribe( data => {
+                // WIN
+
+                var visuData:any = {
+                    "name": data.collection.title,
+                    "children": []
+                };
+
+                data.collections.forEach(element => {
+                    
+                    var child = {
+                        "name" : element.title,
+                        "children":[
+                            {
+                                "name" : "pictures",
+                                "size" : 10
+                            },
+                            {
+                                "name" : "videos",
+                                "size" : 5
+                            },
+                            {
+                                "name" : "pdf",
+                                "size" : 1
+                            },
+                            {
+                                "name" : "categories",
+                                "size" : 2
+                            }
+                        ]
+                    };
+
+                    visuData.children.push(child );
+                });
+
+            
+                observer.next( visuData );
+                observer.complete();
+            }, error => {
+                // FAIL
+                console.log("FAIL: "+JSON.stringify(error));
+                observer.next( {} );
+                observer.complete();
+            });
+        });
+
+    }
 
     /****
      * PRIVATE METHODS
